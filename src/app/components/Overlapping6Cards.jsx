@@ -2,30 +2,43 @@
 import { useState, useEffect } from "react";
 
 const cardData = [
-  {
-    step: "01",
-    title: "Register & Enroll",
-    description: "Sign up by filling out the registration form with your name, email, and basic details.",
-    borderColor: "#70B865",
-  },
-  {
-    step: "02",
-    title: "Start Learning",
-    description: "Go through the structured learning modules at your own pace.",
-    borderColor: "#FAA61A",
-  },
-  {
-    step: "03",
-    title: "Take the Assessment",
-    description: "Complete a final test or project to demonstrate your financial literacy knowledge.",
-    borderColor: "#BDD753",
-  },
-  {
-    step: "04",
-    title: "Earn Your Certificate",
-    description: "Upon successful completion, recieve a verified certificate that can be downloaded and shared.",
-    borderColor: "#70B865",
-  },
+      {
+        step: "01",
+        title: "Register & Enroll",
+        description: "Sign up by filling out the registration form with your name, email, and basic details.",
+        borderColor: "#70B865",
+      },
+      {
+        step: "02",
+        title: "Start Learning",
+        description: "Go through the structured learning modules at your own pace.",
+        borderColor: "#FAA61A",
+      },
+      {
+        step: "03",
+        title: "Take the Assessment",
+        description: "Complete a final test or project to demonstrate your financial literacy knowledge.",
+        borderColor: "#BDD753",
+      },
+      {
+        step: "04",
+        title: "Earn Your Certificate",
+        description: "Upon successful completion, recieve a verified certificate that can be downloaded and shared.",
+        borderColor: "#70B865",
+      },
+      {
+        step: "05",
+        title: "Take the Assessment",
+        description: "Complete a final test or project to demonstrate your financial literacy knowledge.",
+        borderColor: "#BDD753",
+      },
+      {
+        step: "06",
+        title: "Earn Your Certificate",
+        description: "Upon successful completion, recieve a verified certificate that can be downloaded and shared.",
+        borderColor: "#70B865",
+      },
+  
 ];
 
 const OverlappingCards = () => {
@@ -58,7 +71,7 @@ const OverlappingCards = () => {
             <div
               key={index}
               className={`bg-white rounded-[40px] shadow-lg cursor-pointer transition-all duration-1000
-                ${expandedCard === index ? "w-[400px]" : "w-[141px]"}
+                ${expandedCard === index ? "w-[400px]" : "w-[120px]"}
                 h-[450px] flex flex-col justify-between p-[40px]
                 ${index !== cardData.length - 1 ? "-mr-[55px]" : ""}
               `}
@@ -69,19 +82,26 @@ const OverlappingCards = () => {
               onClick={() => handleCardClick(index)}
             >
               <div className="flex h-full w-full relative">
-                <div className={`flex flex-col justify-between h-full transition-all duration-1000
-                  ${expandedCard === index ? "ml-[20px]" : ""}`}
+                <div
+                  className={`flex flex-col justify-between h-full transition-all duration-1000
+                    ${expandedCard === index ? "ml-[20px]" : ""}
+                  `}
                 >
-                  <div className="text-[80px] font-light leading-[100%] tracking-normal text-[#f4e1e2] text-center capitalize">
+                  <div className="text-[60px] font-light leading-[100%] tracking-normal text-[#f4e1e2] text-center capitalize">
                     {card.step}
                   </div>
+
                   <h2
                     className="text-[25px] font-medium leading-[32px] text-black font-[Anek Latin]"
-                    style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                    style={{
+                      writingMode: "vertical-rl",
+                      transform: "rotate(180deg)",
+                    }}
                   >
                     {card.title}
                   </h2>
                 </div>
+
                 {expandedCard === index && (
                   <div className="text-sm text-gray-600 self-end">
                     {card.description}
@@ -92,7 +112,7 @@ const OverlappingCards = () => {
           ))}
         </div>
       ) : (
-        // Mobile Layout - Now using the compact 6-card styling
+        // Mobile Layout - Optimized for 6 cards
         <div className="flex flex-col items-center w-full max-w-[335px] gap-1">
           {cardData.map((card, index) => (
             <div
