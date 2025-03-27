@@ -64,7 +64,6 @@ const OverlappingCards = () => {
 
   return (
     <div className={`flex justify-center items-center ${isMobile ? 'h-auto' : 'min-h-screen'} bg-gray-100 p-4`}>
-      {/* Desktop Layout - No Changes */}
       {!isMobile ? (
         <div className="relative flex gap-[20px]">
           {cardData.map((card, index) => (
@@ -112,7 +111,6 @@ const OverlappingCards = () => {
           ))}
         </div>
       ) : (
-        // Mobile Layout - Optimized for 6 cards
         <div className="flex flex-col items-center w-full max-w-[335px] gap-1">
           {cardData.map((card, index) => (
             <div
