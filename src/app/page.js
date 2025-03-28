@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <div>
       <StepsToWealth />
-      <StepsToWealth6 />
     </div>
   );
 }

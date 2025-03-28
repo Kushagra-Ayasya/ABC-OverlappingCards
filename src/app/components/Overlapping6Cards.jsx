@@ -1,6 +1,6 @@
-"use client";
+ "use client";
 import { useState, useEffect } from "react";
-
+ 
 const cardData = [
       {
         step: "01",
@@ -38,41 +38,41 @@ const cardData = [
         description: "Upon successful completion, recieve a verified certificate that can be downloaded and shared.",
         borderColor: "#70B865",
       },
-  
+ 
 ];
-
-const OverlappingCards = () => {
+ 
+const Overlapping6Cards = () => {
   const [expandedCard, setExpandedCard] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-
+ 
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
+ 
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
-
+ 
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
-
+ 
   const handleCardClick = (index) => {
     if (!isMobile && expandedCard !== index) {
       setExpandedCard(index);
     }
   };
-
+ 
   return (
-    <div className={`flex justify-center items-center ${isMobile ? 'h-auto' : 'min-h-screen'} bg-gray-100 p-4`}>
+    <div className={`flex justify-center items-center bg-gray-100 p-4`}>
       {!isMobile ? (
         <div className="relative flex gap-[20px]">
           {cardData.map((card, index) => (
             <div
               key={index}
               className={`bg-white rounded-[40px] shadow-lg cursor-pointer transition-all duration-1000
-                ${expandedCard === index ? "w-[400px]" : "w-[120px]"}
-                h-[450px] flex flex-col justify-between p-[40px]
-                ${index !== cardData.length - 1 ? "-mr-[55px]" : ""}
+                ${expandedCard === index ? "w-[350px]" : "w-[120px]"}
+                min-h-[250px] flex flex-col justify-between p-[40px]
+                ${index !== cardData.length - 1 ? "-mr-[51px]" : ""}
               `}
               style={{
                 zIndex: (cardData.length - index) * 10,
@@ -83,13 +83,13 @@ const OverlappingCards = () => {
               <div className="flex h-full w-full relative">
                 <div
                   className={`flex flex-col justify-between h-full transition-all duration-1000
-                    ${expandedCard === index ? "ml-[20px]" : ""}
+                    ${expandedCard === index ? "ml-6" : ""}
                   `}
                 >
-                  <div className="text-[60px] font-light leading-[100%] tracking-normal text-[#f4e1e2] text-center capitalize">
+                  <div className="text-[60px] font-light tracking-normal text-[#f4e1e2] text-center capitalize">
                     {card.step}
                   </div>
-
+ 
                   <h2
                     className="text-[25px] font-medium leading-[32px] text-black font-[Anek Latin]"
                     style={{
@@ -100,9 +100,9 @@ const OverlappingCards = () => {
                     {card.title}
                   </h2>
                 </div>
-
+ 
                 {expandedCard === index && (
-                  <div className="text-sm text-gray-600 self-end">
+                  <div className="text-sm text-gray-600 w-full self-end">
                     {card.description}
                   </div>
                 )}
@@ -138,5 +138,7 @@ const OverlappingCards = () => {
     </div>
   );
 };
-
-export default OverlappingCards;
+ 
+export default Overlapping6Cards;
+ 
+ 
